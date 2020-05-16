@@ -1,0 +1,4 @@
+"Department_id","Department_manager_id","Car_ID","Car_Status","Vehicle_registration"
+"6","6101010006","1","ON USED","vech012345678123"
+"6","6101010006","2","ON USED","vech012345678789"
+"6","6101010006","3","ON USED","vech201345678789"

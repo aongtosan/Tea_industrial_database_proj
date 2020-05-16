@@ -1,0 +1,36 @@
+body{
+    font-family: sans-serif;
+}
+.menu{
+    position: relative;
+}
+.menu:hover .content a{
+    display: block;
+}
+.btn{
+    border: none;
+    color: white;
+    background-color: #191919;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+.content{
+    min-width: 200px;
+    position: absolute;
+}
+.content a{
+    position: relative;
+    left: 30%;
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    background: #191919;
+    display:none;
+    transition: 0.3 all;
+}
+.content a:hover{
+    opacity: 0.7;
+    padding-left: 20px;
+    color:#fed130;
+
+}

@@ -1,0 +1,820 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 16, 2020 at 03:16 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `tea_industrial_v2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `user_name` varchar(10) NOT NULL,
+  `pass` varchar(30) NOT NULL,
+  `Employee_id` varchar(10) NOT NULL,
+  `Login_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `logout_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Status` varchar(3) NOT NULL DEFAULT 'out'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`user_name`, `pass`, `Employee_id`, `Login_time`, `logout_time`, `Status`) VALUES
+('6101010001', '1', '6101010001', '2020-05-14 14:56:30', '2020-05-14 14:56:29', 'out'),
+('6101010002', '2', '6101010002', '2020-05-15 04:03:52', '2020-05-14 06:46:25', 'in'),
+('6101010003', '3', '6101010003', '2020-05-14 14:25:25', '2020-05-14 14:25:24', 'out'),
+('6101010004', '4', '6101010004', '2020-05-14 14:02:10', '2020-05-14 14:02:10', 'out'),
+('6101010005', '5', '6101010005', '2020-05-14 15:06:02', '2020-05-14 15:06:02', 'out'),
+('6101010006', '6', '6101010006', '2020-05-14 15:05:23', '2020-05-14 15:05:23', 'out');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `citizen`
+--
+
+CREATE TABLE `citizen` (
+  `Employee_id` varchar(10) NOT NULL,
+  `Citizen_id` varchar(13) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `citizen`
+--
+
+INSERT INTO `citizen` (`Employee_id`, `Citizen_id`) VALUES
+('3601031000', '1100897975321'),
+('3701031000', '1100897729531'),
+('5902010006', '1100897729538'),
+('5902010007', '1100897729531'),
+('6101010001', '1100903713263'),
+('6101010002', '1100827795623'),
+('6101010003', '1100903713278'),
+('6101010004', '1100913713263'),
+('6101010005', '1100817795623'),
+('6101010006', '1100903713763'),
+('6101010007', '1100897729532'),
+('6101020001', '1100858958075'),
+('6101020002', '1100858944078'),
+('6101020003', '1100613978066'),
+('6101020004', '1100613978055'),
+('6101020005', '1100613456567'),
+('6101020006', '1100609879980'),
+('6101020007', '1100855647782'),
+('6101020008', '1100878788787'),
+('6101030001', '1100899664523'),
+('6101030002', '1100657874352'),
+('6101030003', '1100899880764'),
+('6101030004', '1100869946472'),
+('6101030005', '1100899778324'),
+('6101030006', '1100872355426'),
+('6101030007', '1100877644662'),
+('6101030008', '1100896044567'),
+('6101040001', '1100613966704'),
+('6101040002', '1100899855094'),
+('6101040003', '1100618077652'),
+('6101040004', '1100858768900'),
+('6101040005', '1100899213423'),
+('6101040006', '1100855673442'),
+('6101040007', '1100876432315'),
+('6101040008', '1100899044672'),
+('6101040009', '1100855244317'),
+('6101050001', '1100886644552'),
+('6101050002', '1100878032778'),
+('6101050003', '1100878044560'),
+('6101050004', '1100866944093'),
+('6101050005', '1100899700845'),
+('6101050006', '1100899455231'),
+('6101050007', '1100895677890'),
+('6101050008', '1100899644226'),
+('6101050009', '1100894677823'),
+('6101060001', '1100978977809'),
+('6101060002', '1100858958076'),
+('6101060003', '110085895846'),
+('6101060004', '1100858327369'),
+('6101060005', '1100899647890'),
+('6101060006', '1100898766771'),
+('6101060007', '1100899643460'),
+('6101060008', '1100899644569'),
+('6101060009', '1100899644280'),
+('6101060010', '1100899644231'),
+('6101070001', '1100877644553'),
+('6101070002', '1100877644552'),
+('6101070003', '1100855646728'),
+('6101070004', '1100614567890'),
+('6101070005', '1100613457832'),
+('6101070006', '1100613457379'),
+('6101070007', '1100613457457'),
+('6101070008', '1100613457788'),
+('6101070009', '1100613457908'),
+('6101070010', '1100613457980'),
+('6101080001', '1100613978000'),
+('6101080002', '1100613978022'),
+('6101080003', '1100613978033'),
+('6101080004', '1100613978044'),
+('6101080005', '1100613978099'),
+('6101080006', '1100609879342'),
+('6101080007', '1100858958043'),
+('6101080008', '1100858955677'),
+('6101080009', '1100858943667'),
+('6101080010', '1100858943378'),
+('6101090001', '1100878787788'),
+('6101090002', '1100878786655'),
+('6101090003', '1100609879977'),
+('6101090004', '1100613979021'),
+('6101090005', '1100613976755'),
+('6101090006', '1100613339984'),
+('6101090007', '1100614449984'),
+('6101090008', '1100615559984'),
+('6101090009', '1100616669984'),
+('6101090010', '1100617779984'),
+('6101100001', '1100619978066'),
+('6101100002', '1100617978066'),
+('6101100003', '1100614978066'),
+('6101100004', '1100613958066'),
+('6101100005', '1100613968066'),
+('6101100006', '1100614566567'),
+('6101100007', '1100613457855'),
+('6101100008', '1100613459088'),
+('6101100009', '1100609879900'),
+('6101100010', '1100858957785'),
+('6101110001', '1100852367782'),
+('6101110002', '1100853267782'),
+('6101110003', '1100854147782'),
+('6101110004', '1100854287782'),
+('6101110005', '1100609829980'),
+('6201010001', '1101120012270');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cook`
+--
+
+CREATE TABLE `cook` (
+  `work_station` varchar(1) NOT NULL,
+  `Department_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cook`
+--
+
+INSERT INTO `cook` (`work_station`, `Department_id`) VALUES
+('1', 1),
+('2', 1),
+('3', 1),
+('4', 1),
+('5', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `Compan_ID` varchar(10) NOT NULL,
+  `Company_name` varchar(30) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `tel` varchar(10) NOT NULL,
+  `Province` varchar(20) NOT NULL,
+  `District` varchar(20) NOT NULL,
+  `canton` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`Compan_ID`, `Company_name`, `Email`, `tel`, `Province`, `District`, `canton`) VALUES
+('0000000001', 'Maruay store', '-', '0897729532', 'Bangkok,10220', 'Saimai', 'Saimai'),
+('0000000002', 'Trio shop', '-', '0897729953', 'Bangkok,10220', 'Saimai', 'Khong-thanon'),
+('0000000003', 'TU - DOME', '-', '0861234567', 'Pathumthani,10550', 'Rangsit', 'Khong-luang'),
+('0000000004', ' Amazon coffee cafe riittiya', 'amazon_coffee@gmail.com', '0857729532', 'Bangkok,10220', 'Saimai', 'Khong-thanon'),
+('0000000005', 'Seventh Heaven paradise', 'SH_paradise@gmail.com', '0859177401', 'Bangkok,10220', 'Saimai', 'Saimai');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `Department_id` int(11) NOT NULL,
+  `Department_manager_id` varchar(10) NOT NULL,
+  `Department_name` varchar(20) DEFAULT NULL,
+  `location` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`Department_id`, `Department_manager_id`, `Department_name`, `location`) VALUES
+(1, '6101010001', 'Product', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130'),
+(2, '6101010002', 'Management', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130'),
+(3, '6101010003', 'Supplier', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130'),
+(4, '6101010004', 'Accountant', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130'),
+(5, '6101010005', 'Administrative', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130'),
+(6, '6101010006', 'Transaportation', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `Employee_id` varchar(10) NOT NULL,
+  `Name` varchar(40) DEFAULT NULL,
+  `Gender` varchar(1) NOT NULL,
+  `tel` varchar(10) DEFAULT NULL,
+  `Address` text DEFAULT NULL,
+  `Salary` int(11) NOT NULL,
+  `work_on` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`Employee_id`, `Name`, `Gender`, `tel`, `Address`, `Salary`, `work_on`) VALUES
+('3601031000', 'Pornthep Mala', 'M', '0897975321', '160/89\r\nRachathani vil 3\r\nKhong-thanon,Saimai\r\nBangkok,10220', 26050, 3),
+('3701031000', 'Mariam Khankaw', 'F', '0868829532', '111/120 Khong-prem-pracha vil Luksi,Donmuang Bangkok,11050', 27000, 1),
+('5902010006', 'Orawan Kaokai', 'F', '0897729538', '111/89\r\nSoi-Annex vil\r\nSaimai,Saimai\r\nBangkok,10220', 22560, 5),
+('5902010007', 'Thai Peungpa', 'M', '0897729531', '160/89\r\nRachathani vil 5\r\nKhong-thanon,Saimai\r\nBangkok,10220', 22560, 1),
+('6101010001', 'Jakkapat Srikacha', 'M', '0903713263', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 50000, 1),
+('6101010002', 'Kanghawan Madee', 'M', '0827795623', '450/6\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 50000, 2),
+('6101010003', 'Jonh wick', 'M', '0903713278', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 50000, 3),
+('6101010004', 'Jakaruek longken', 'M', '0913713263', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 5000, 4),
+('6101010005', 'Nuttha jarumasna', 'F', '0817795623', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 50000, 5),
+('6101010006', 'Chavapee Manocha', 'M', '0903713763', '73/1\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 50000, 6),
+('6101010007', 'Vanesara Kirddee', 'F', '0897729532', '111/89\r\nKhong-prem-pracha vil\r\nLuksi,Donmuang\r\nBangkok,11050', 9000, 1),
+('6101020001', 'Suhan Pohtae', 'M', '0858958075', '160/89\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 22500, 5),
+('6101020002', 'John Wat', 'M', '0858944078', '160/89\r\nRachathani vil 2\r\nKhong-thanon,Saimai\r\nBangkok,10220', 22500, 5),
+('6101020003', 'James  Maddison', 'M', '0613978066', '70/79\r\nKhong-prem-pracha vil\r\nLuksi,Donmuang\r\nBangkok,11050', 9000, 1),
+('6101020004', 'Laos Puengkai', 'M', '0613978055', '110/59\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21000, 2),
+('6101020005', 'Natthaporn   sandee', 'F', '0613456567', '76/10\r\nRachapluke vil 1\r\nKlongsan,Klongsan\r\nBangkok,10600', 9000, 4),
+('6101020006', 'Gareth Barry', 'M', '0609879980', '112/59\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 2),
+('6101020007', 'Clark Kant', 'M', '0855647782', '159/56\r\nRachathani vil 1\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 3),
+('6101020008', 'Yostawee Sriladda', 'M', '0878788787', '96/94\r\nRachathani vil 7\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 6),
+('6101030001', 'Teenoi  Saetang', 'M', '0899664523', '144/97\r\nRachathani vil 3\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21000, 2),
+('6101030002', 'Udom  Sombune', 'M', '0657874352', '73/1\r\nNongnam town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 9000, 2),
+('6101030003', 'Thanaporn  Rakdee', 'F', '0899880764', '76/10\r\nNongyasai twon\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 9000, 4),
+('6101030004', 'Somchai   Phupan', 'M', '0869946472', '74/1\r\nNongyasai town\r\nKhanongpra,Donchedi\r\nSuphanburi,72120', 9000, 5),
+('6101030005', 'Bernard   Duffin', 'M', '0899778324', '70/2\r\nSabaidee vill\r\nKlongsong,KlongLuang\r\nPhatumthani,30130', 9000, 5),
+('6101030006', 'Kasarn Suksiri', 'M', '0872355426', '54/60\r\nSubswong town\r\nKhanongpra,Pakchong\r\nNakhonrachasima,30130', 9000, 6),
+('6101030007', 'Mamuang   Namprawan', 'F', '0877644662', '60/55\r\nKhong-prem-pracha vil\r\nLuksi,Donmuang\r\nBangkok,11050', 26000, 6),
+('6101030008', 'Korrakot Wiriya', 'M', '0896044567', '30/131\r\nLucky vil\r\nBangkokyaii,Thonburi\r\nBangkok,10500', 21500, 3),
+('6101040001', 'Panya  Aromdee', 'M', '0613966704', '52/63\r\nKhong-prem-pracha vil\r\nLuksi,Donmuang\r\nBangkok,11050', 9000, 3),
+('6101040002', 'Thanakorn   Nornlarb', 'M', '0899855094', '30/24\r\nKhong-prem-prachakorn vil\r\nLuksi,Donmuang\r\nBangkok,11050', 9000, 2),
+('6101040003', 'Eakkawit Panya', 'M', '0618077652', '50/49\r\nKhog prapa vil\r\nBangsuei,Bangsue\r\nBangkok,11050', 9000, 1),
+('6101040004', 'Watson  Yuyong', 'M', '0858768900', '120/90\r\nRachathani vil 1\r\nKhong-thanon,Saimai\r\nBangkok,10220', 25000, 2),
+('6101040005', 'Rattana   Thamrong', 'F', '0899213423', '70/10\r\nCharoenrat town\r\nTalardpool , klongsan\r\nBangkok,10600', 9000, 5),
+('6101040006', 'Thatsapon   saegwoe', 'M', '0855673442', '144/97\r\nRachathani vil 3\r\nKhong-thanon,Saimai\r\nBangkok,10220', 22500, 2),
+('6101040007', 'Onjira  Naja', 'F', '0876432315', '40/29\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 6),
+('6101040008', 'Rodsak  Raktham', 'M', '0899044672', '100/58\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 4),
+('6101040009', 'Marcus   Suporn', 'M', '0855244317', '50/20\r\nRachathani vil 2\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 6),
+('6101050001', 'Sunisa  Kanasongtung', 'F', '0886644552', '22/14\r\nRachathani vil 1\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 4),
+('6101050002', 'Kotchakorn  Rornchang', 'F', '0878032778', '27/10\r\nRachathani vil 2\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21000, 5),
+('6101050003', 'Nuengdiaw Dangwongsri', 'M', '0878044560', '28/10\r\nRachathani vil 3\r\nKhong-thanon,Saimai\r\nBangkok,10220', 9000, 6),
+('6101050004', 'Jarupat  Chatjen', 'M', '0866944093', '20/38\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21000, 3),
+('6101050005', 'Chatinat Tattum', 'M', '0899700845', '29/10\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21500, 2),
+('6101050006', 'Surapos Sodnum', 'M', '0899455231', '23/39\r\nRachathani vil 2\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21000, 4),
+('6101050007', 'Teerasil Mangda', 'M', '0895677890', '31/40\r\nDusit vil 2\r\nseri,Thonburi\r\nBangkok,10220', 9000, 3),
+('6101050008', 'Kanchana  Sangthong', 'F', '0899644226', '31/40\r\nRachathani vil 2\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21500, 6),
+('6101050009', 'Jirrayu Mukrata', 'M', '0894677823', '31/40\r\nRachathani vil 2\r\nKhong-thanon,Saimai\r\nBangkok,10220', 22500, 5),
+('6101060001', 'Bandit Nguengthong', 'M', '0978977809', '41/40\r\nRachapluek\r\nKhong-thanon,Ladprow\r\nBangkok,10220', 9000, 6),
+('6101060002', 'Ponnawat Hatdern', 'M', '0858958076', '32/80\r\nRachathani vil 3\r\nKhong-thanon,Bangrak\r\nBangkok,10300', 9000, 3),
+('6101060003', 'Ranee  Yeeha', 'F', '085895846', '31/40\r\nRachathani vil \r\nKhong-thanon,Klongtoei\r\nBangkok,10220', 9000, 5),
+('6101060004', 'Abdun   salman', 'M', '0858327369', '31/40\r\nRachathani vil 2\r\nangridunang,Phatumwan\r\nBangkok,10400', 9000, 1),
+('6101060005', 'Nutsara  Sakaegi', 'F', '0899647890', '31/40\r\nRachathani vil 2\r\nKhong-thanon,Saimai\r\nBangkok,10220', 21500, 1),
+('6101060006', 'Pongbaworn Rattanapan', 'M', '0898766771', '718\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 25000, 2),
+('6101060007', 'Dalunah  pachok', 'F', '0899643460', '719\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 6),
+('6101060008', 'Kanchhana   Lalok', 'F', '0899644569', '717\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 5),
+('6101060009', 'Kevin  Deeromram', 'M', '0899644280', '716\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6101060010', 'Thanathep  Semha', 'M', '0899644231', '715\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 3),
+('6101070001', 'Natthapan sandee', 'M', '0877644553', '730\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 3),
+('6101070002', 'Teeyai Saetang', 'M', '0877644552', '731\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21000, 2),
+('6101070003', 'Kanin Suksira', 'F', '0855646728', '732\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6101070004', 'Pinyo  Aromdee', 'M', '0614567890', '733\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 1),
+('6101070005', 'Thanakarn   Nganyer', 'F', '0613457832', '734\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 1),
+('6101070006', 'Nattapol  Kondee', 'M', '0613457379', '735\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 27000, 6),
+('6101070007', 'Atirut  Chutachareonsuk', 'M', '0613457457', '736\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 5),
+('6101070008', 'Natchapol  Konkayan', 'M', '0613457788', '737\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 23000, 1),
+('6101070009', 'Varaporn   Kitsawat', 'F', '0613457908', '738\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22000, 2),
+('6101070010', 'Worrawan Kittiyakorn', 'F', '0613457980', '739\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 3),
+('6101080001', 'Alongkorn Mahitsaya', 'M', '0613978000', '740\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 4),
+('6101080002', 'Sirawit  Kotcahsarn', 'M', '0613978022', '741\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 3),
+('6101080003', 'Jirayu  Plutake', 'M', '0613978033', '742\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 1),
+('6101080004', 'Yada Mahanoi', 'F', '0613978044', '743\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 2),
+('6101080005', 'Prapaporn Nornyang', 'F', '0613978099', '744\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 6),
+('6101080006', 'Thanatorn  Worndon', 'M', '0609879342', '745\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6101080007', 'Tharadol  Kondee', 'M', '0858958043', '746\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21000, 3),
+('6101080008', 'Watson Yuyong', 'M', '0858955677', '747\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 1),
+('6101080009', 'Chakkrit  Bunprasert', 'M', '0858943667', '748\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6101080010', 'Kumpol  Kuwitnich', 'M', '0858943378', '749\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 5),
+('6101090001', 'Punnawit   Kityer', 'M', '0878787788', '600\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 6),
+('6101090002', 'Punnatorn  nornlub', 'M', '0878786655', '601\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 5),
+('6101090003', 'Somsri   Sudjathum', 'F', '0609879977', '602\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 1),
+('6101090004', 'Urairat  Cadthai', 'F', '0613979021', '603\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 24000, 3),
+('6101090005', 'Chanakorn  Banzoa', 'F', '0613976755', '604\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 2),
+('6101090006', 'Panut  Woraniphitphan', 'M', '0613339984', '501\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 6),
+('6101090007', 'Kittisak  Theingwong', 'M', '0614449984', '502\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 5),
+('6101090008', 'Suprem  Chandee', 'M', '0615559984', '503\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6101090009', 'Phanuwat Wataya', 'M', '0616669984', '504\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 3),
+('6101090010', 'Sornsiri Nitipong', 'M', '0617779984', '505\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 1),
+('6101100001', 'Wasu  Suprakorn', 'M', '0619978066', '506\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 1),
+('6101100002', 'Dechathorn  Lersatarn', 'M', '0617978066', '507\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 3),
+('6101100003', 'Jirakit Ketdee', 'M', '0614978066', '508\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6101100004', 'Worramate  Kittipolrit', 'M', '0613958066', '509\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 5),
+('6101100005', 'Thanapon Jaidee', 'M', '0613968066', '510\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 1),
+('6101100006', 'Sittisak Ponthaisong', 'M', '0614566567', '401\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21000, 4),
+('6101100007', 'Sahatsawat Ketmukda', 'M', '0613457855', '402\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6101100008', 'Supitcha  Racapang', 'F', '0613459088', '403\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 3),
+('6101100009', 'Willawan  Chantem', 'F', '0609879900', '404\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 5),
+('6101100010', 'Nawamuk  Maluengnon', 'M', '0858957785', '405\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 2),
+('6101110001', 'Chayakorn  Nornlaewna', 'M', '0852367782', '300\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 22500, 6),
+('6101110002', 'Akaradech  Dechochai', 'M', '0853267782', '301\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21500, 3),
+('6101110003', 'Sarach  Yupen', 'M', '0854147782', '302\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 21000, 2),
+('6101110004', 'Adisak  Kraisorn', 'M', '0854287782', '303\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 1),
+('6101110005', 'Chanathip Songkrasai', 'M', '0609829980', '304\r\nRachapluke vil\r\nKlonglord,Pranakorn\r\nBangkok,10500', 9000, 4),
+('6201010001', 'Marisa Madee', 'F', '0859177401', '111/88\r\nRachathani vil 4\r\nKhong-thanon,Saimai\r\nBangkok,10220', 22050, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material`
+--
+
+CREATE TABLE `material` (
+  `Item_ID` varchar(15) NOT NULL,
+  `Tea_ID` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `material`
+--
+
+INSERT INTO `material` (`Item_ID`, `Tea_ID`) VALUES
+('BLCK_6301020001', 'BLCK_6102110003'),
+('BLCK_6301030001', 'BLCK_6102110003'),
+('BLCK_6303010001', 'BLCK_6102110003'),
+('GREN_6305080001', 'BLCK_6102150001'),
+('GREN_6301010001', 'GREN_6102110002'),
+('GREN_6301010002', 'GREN_6102110002'),
+('GREN_6301010003', 'GREN_6102140001'),
+('GREN_6301010004', 'GREN_6304070001');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `send`
+--
+
+CREATE TABLE `send` (
+  `Car_ID` int(11) NOT NULL,
+  `Compan_ID` varchar(10) NOT NULL,
+  `Product_ID` varchar(15) NOT NULL,
+  `Send_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `send`
+--
+
+INSERT INTO `send` (`Car_ID`, `Compan_ID`, `Product_ID`, `Send_date`) VALUES
+(1, '0000000001', 'BLCK_6301020001', '2020-05-01'),
+(1, '0000000002', 'BLCK_6301030001', '2020-01-10'),
+(1, '0000000002', 'GREN_6301010003', '2020-05-04'),
+(1, '0000000003', 'BLCK_6303010001', '2020-02-10'),
+(2, '0000000003', 'GREN_6305080001', '2020-05-14'),
+(2, '0000000004', 'GREN_6301010002', '2020-04-16'),
+(3, '0000000003', 'GREN_6301010001', '2020-03-12'),
+(3, '0000000003', 'GREN_6301010004', '2020-02-28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tea_leaf`
+--
+
+CREATE TABLE `tea_leaf` (
+  `Tea_ID` varchar(15) NOT NULL,
+  `Type` varchar(4) DEFAULT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `Expiration_date` date DEFAULT NULL,
+  `Purchase_date` date DEFAULT NULL,
+  `Manufacturer` text DEFAULT NULL,
+  `Price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tea_leaf`
+--
+
+INSERT INTO `tea_leaf` (`Tea_ID`, `Type`, `Quantity`, `Expiration_date`, `Purchase_date`, `Manufacturer`, `Price`) VALUES
+('BLCK_6102110003', 'BLCK', 500, '2019-02-11', '2018-02-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 35000),
+('BLCK_6102130002', 'BLCK', 200, '2019-02-13', '2018-02-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6102140002', 'BLCK', 500, '2019-02-14', '2018-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 35000),
+('BLCK_6102150001', 'BLCK', 700, '2019-02-15', '2018-02-15', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 49000),
+('BLCK_6102160001', 'BLCK', 100, '2019-02-16', '2018-02-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7000),
+('BLCK_6102180002', 'BLCK', 200, '2019-02-18', '2018-02-18', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6102210001', 'BLCK', 150, '2019-02-21', '2018-02-21', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10500),
+('BLCK_6102230001', 'BLCK', 250, '2019-02-23', '2018-02-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('BLCK_6103020002', 'BLCK', 270, '2019-03-02', '2018-03-02', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18900),
+('BLCK_6103040001', 'BLCK', 500, '2019-03-04', '2018-03-04', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 35000),
+('BLCK_6103060002', 'BLCK', 150, '2019-03-06', '2018-03-06', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10500),
+('BLCK_6103070003', 'BLCK', 200, '2019-03-07', '2018-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6103090002', 'BLCK', 250, '2019-03-09', '2018-03-09', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('BLCK_6103120002', 'BLCK', 200, '2019-03-12', '2018-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6103130002', 'BLCK', 90, '2019-03-13', '2018-03-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6300),
+('BLCK_6103160001', 'BLCK', 150, '2019-03-16', '2018-03-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10500),
+('BLCK_6103170002', 'BLCK', 170, '2019-03-17', '2018-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 11900),
+('BLCK_6103190003', 'BLCK', 160, '2019-03-19', '2018-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 11200),
+('BLCK_6103200002', 'BLCK', 470, '2019-03-20', '2018-03-20', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 32900),
+('BLCK_6103220001', 'BLCK', 380, '2019-03-22', '2018-03-22', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 26600),
+('BLCK_6103250001', 'BLCK', 420, '2019-03-25', '2018-03-25', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 29400),
+('BLCK_6103280002', 'BLCK', 210, '2019-03-28', '2018-03-28', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('BLCK_6103290003', 'BLCK', 190, '2019-03-29', '2018-03-29', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 13300),
+('BLCK_6104010001', 'BLCK', 210, '2019-04-01', '2018-04-01', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('BLCK_6104040001', 'BLCK', 210, '2019-04-04', '2018-04-04', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('BLCK_6104080002', 'BLCK', 210, '2019-04-08', '2018-04-08', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('BLCK_6202110003', 'BLCK', 500, '2020-02-11', '2019-02-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 35000),
+('BLCK_6202130002', 'BLCK', 200, '2020-02-13', '2019-02-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6202140002', 'BLCK', 500, '2020-02-14', '2019-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 35000),
+('BLCK_6202150001', 'BLCK', 700, '2020-02-15', '2019-02-15', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 49000),
+('BLCK_6202160001', 'BLCK', 100, '2020-02-16', '2019-02-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7000),
+('BLCK_6202180002', 'BLCK', 200, '2020-02-18', '2019-02-18', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6202210001', 'BLCK', 150, '2020-02-21', '2019-02-21', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10500),
+('BLCK_6202230001', 'BLCK', 250, '2020-02-23', '2019-02-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('BLCK_6203020002', 'BLCK', 270, '2020-03-02', '2019-03-02', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18900),
+('BLCK_6203040001', 'BLCK', 500, '2020-03-04', '2019-03-04', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 35000),
+('BLCK_6203060002', 'BLCK', 150, '2020-03-06', '2019-03-06', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10500),
+('BLCK_6203070003', 'BLCK', 200, '2020-03-07', '2019-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6203090002', 'BLCK', 250, '2020-03-09', '2019-03-09', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('BLCK_6203120002', 'BLCK', 200, '2020-03-12', '2019-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14000),
+('BLCK_6303130002', 'BLCK', 90, '2021-03-13', '2020-03-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6300),
+('BLCK_6303160001', 'BLCK', 150, '2021-03-16', '2020-03-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10500),
+('BLCK_6303170002', 'BLCK', 170, '2021-03-17', '2020-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 11900),
+('BLCK_6303190003', 'BLCK', 160, '2021-03-19', '2020-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 11200),
+('BLCK_6303200002', 'BLCK', 470, '2021-03-20', '2020-03-20', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 32900),
+('BLCK_6303220001', 'BLCK', 380, '2021-03-22', '2020-03-22', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 26600),
+('BLCK_6303250001', 'BLCK', 420, '2021-03-25', '2020-03-25', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 29400),
+('BLCK_6303280002', 'BLCK', 210, '2021-03-28', '2020-03-28', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('BLCK_6303290003', 'BLCK', 190, '2021-03-29', '2020-03-29', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 13300),
+('BLCK_6304010001', 'BLCK', 210, '2021-04-01', '2020-04-01', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('BLCK_6304040001', 'BLCK', 210, '2021-04-04', '2020-04-04', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('BLCK_6304080002', 'BLCK', 210, '2021-04-08', '2020-04-08', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14700),
+('GREN_6102110002', 'GREN', 1500, '2019-02-11', '2018-02-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 90000),
+('GREN_6102140001', 'GREN', 500, '2019-02-14', '2018-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 30000),
+('GREN_6102180001', 'GREN', 250, '2019-02-18', '2018-02-18', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15000),
+('GREN_6102200001', 'GREN', 300, '2019-02-20', '2018-02-20', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18000),
+('GREN_6102230002', 'GREN', 200, '2019-02-23', '2018-02-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12000),
+('GREN_6103010002', 'GREN', 400, '2019-03-01', '2018-03-01', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24000),
+('GREN_6103030001', 'GREN', 100, '2019-03-03', '2018-03-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6000),
+('GREN_6103060001', 'GREN', 300, '2019-03-06', '2018-03-06', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18000),
+('GREN_6103070002', 'GREN', 200, '2019-03-07', '2018-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12000),
+('GREN_6103080001', 'GREN', 300, '2019-03-08', '2018-03-08', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18000),
+('GREN_6103100002', 'GREN', 500, '2019-03-10', '2018-03-10', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 30000),
+('GREN_6103120004', 'GREN', 250, '2019-03-12', '2018-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15000),
+('GREN_6103140001', 'GREN', 90, '2019-03-14', '2018-03-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 5400),
+('GREN_6103150002', 'GREN', 750, '2019-03-15', '2018-03-15', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 45000),
+('GREN_6103160002', 'GREN', 450, '2019-03-16', '2018-03-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 27000),
+('GREN_6103170002', 'GREN', 470, '2019-03-03', '2018-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 28200),
+('GREN_6103170003', 'GREN', 270, '2019-03-17', '2018-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16200),
+('GREN_6103190002', 'GREN', 870, '2019-03-19', '2018-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 52200),
+('GREN_6103210002', 'GREN', 270, '2019-03-21', '2018-03-21', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16200),
+('GREN_6103230002', 'GREN', 210, '2019-03-23', '2018-03-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12600),
+('GREN_6103260001', 'GREN', 140, '2019-03-26', '2018-03-26', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 8400),
+('GREN_6103290001', 'GREN', 520, '2019-03-29', '2018-03-29', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 31200),
+('GREN_6104020001', 'GREN', 1000, '2019-04-02', '2018-04-02', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 60000),
+('GREN_6104030002', 'GREN', 470, '2019-04-03', '2018-04-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 28200),
+('GREN_6104070001', 'GREN', 500, '2019-04-07', '2018-04-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 30000),
+('GREN_6202110002', 'GREN', 1500, '2020-02-11', '2019-02-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 90000),
+('GREN_6202140001', 'GREN', 500, '2020-02-14', '2019-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 30000),
+('GREN_6202180001', 'GREN', 250, '2020-02-18', '2019-02-18', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15000),
+('GREN_6202200001', 'GREN', 300, '2020-02-20', '2019-02-20', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18000),
+('GREN_6202230002', 'GREN', 200, '2020-02-23', '2019-02-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12000),
+('GREN_6203010002', 'GREN', 400, '2020-03-01', '2019-03-01', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24000),
+('GREN_6203030001', 'GREN', 100, '2020-03-03', '2019-03-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6000),
+('GREN_6203060001', 'GREN', 300, '2020-03-06', '2019-03-06', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18000),
+('GREN_6203070002', 'GREN', 200, '2020-03-07', '2019-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12000),
+('GREN_6203080001', 'GREN', 300, '2020-03-08', '2019-03-08', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18000),
+('GREN_6203100002', 'GREN', 500, '2020-03-10', '2019-03-10', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 30000),
+('GREN_6203120004', 'GREN', 250, '2020-03-12', '2019-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15000),
+('GREN_6203170002', 'GREN', 470, '2020-03-17', '2019-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 28200),
+('GREN_6303140001', 'GREN', 90, '2021-03-14', '2020-03-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 5400),
+('GREN_6303150002', 'GREN', 750, '2021-03-15', '2020-03-15', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 45000),
+('GREN_6303160002', 'GREN', 450, '2021-03-16', '2020-03-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 27000),
+('GREN_6303170003', 'GREN', 270, '2021-03-17', '2020-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16200),
+('GREN_6303190002', 'GREN', 870, '2021-03-19', '2020-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 52200),
+('GREN_6303210002', 'GREN', 270, '2021-03-21', '2020-03-21', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16200),
+('GREN_6303230002', 'GREN', 210, '2021-03-23', '2020-03-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12600),
+('GREN_6303260001', 'GREN', 140, '2021-03-26', '2020-03-26', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 8400),
+('GREN_6303290001', 'GREN', 520, '2021-03-29', '2020-03-29', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 31200),
+('GREN_6304020001', 'GREN', 1000, '2021-04-02', '2020-04-02', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 60000),
+('GREN_6304030002', 'GREN', 470, '2021-04-03', '2020-04-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 28200),
+('GREN_6304070001', 'GREN', 500, '2021-04-07', '2020-04-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 30000),
+('OLON_6102120001', 'OLON', 500, '2019-02-12', '2018-02-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 40000),
+('OLON_6102140004', 'OLON', 500, '2019-02-14', '2018-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 40000),
+('OLON_6102160002', 'OLON', 500, '2019-02-16', '2018-02-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 20000),
+('OLON_6102190001', 'OLON', 700, '2019-02-19', '2018-02-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 56000),
+('OLON_6102220001', 'OLON', 300, '2019-02-22', '2018-02-22', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24000),
+('OLON_6103020001', 'OLON', 1500, '2019-03-02', '2018-03-02', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 120000),
+('OLON_6103050002', 'OLON', 200, '2019-03-05', '2018-03-05', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('OLON_6103070002', 'OLON', 400, '2019-03-07', '2018-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 32000),
+('OLON_6103100001', 'OLON', 450, '2019-03-10', '2018-03-10', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 36000),
+('OLON_6103120001', 'OLON', 50, '2019-03-12', '2018-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 4000),
+('OLON_6103140002', 'OLON', 250, '2019-03-14', '2018-03-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 20000),
+('OLON_6103170001', 'OLON', 200, '2019-03-17', '2018-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('OLON_6103190001', 'OLON', 890, '2019-03-19', '2018-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 71200),
+('OLON_6103200001', 'OLON', 310, '2019-03-20', '2018-03-20', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24800),
+('OLON_6103230001', 'OLON', 490, '2019-03-23', '2018-03-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 39200),
+('OLON_6103240002', 'OLON', 220, '2019-03-24', '2018-03-24', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17600),
+('OLON_6103270001', 'OLON', 180, '2019-03-27', '2018-03-27', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14400),
+('OLON_6103300001', 'OLON', 230, '2019-03-30', '2018-03-30', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18400),
+('OLON_6104050001', 'OLON', 240, '2019-04-05', '2018-04-05', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 19200),
+('OLON_6104080001', 'OLON', 200, '2019-04-08', '2018-04-08', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('OLON_6104100001', 'OLON', 150, '2019-04-10', '2018-04-10', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12000),
+('OLON_6202120001', 'OLON', 500, '2020-02-12', '2019-02-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 40000),
+('OLON_6202140004', 'OLON', 500, '2020-02-14', '2019-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 40000),
+('OLON_6202160002', 'OLON', 500, '2020-02-16', '2019-02-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 20000),
+('OLON_6202190001', 'OLON', 700, '2020-02-19', '2019-02-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 56000),
+('OLON_6202220001', 'OLON', 300, '2020-02-22', '2019-02-22', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24000),
+('OLON_6203020001', 'OLON', 1500, '2020-03-02', '2019-03-02', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 120000),
+('OLON_6203050002', 'OLON', 200, '2020-03-05', '2019-03-05', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('OLON_6203070002', 'OLON', 400, '2020-03-07', '2019-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 32000),
+('OLON_6203100001', 'OLON', 450, '2020-03-10', '2019-03-10', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 36000),
+('OLON_6203120001', 'OLON', 50, '2020-03-12', '2019-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 4000),
+('OLON_6303140002', 'OLON', 250, '2021-03-14', '2020-03-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 20000),
+('OLON_6303170001', 'OLON', 200, '2021-03-17', '2020-03-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('OLON_6303190001', 'OLON', 890, '2021-03-19', '2020-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 71200),
+('OLON_6303200001', 'OLON', 310, '2021-03-20', '2020-03-20', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24800),
+('OLON_6303230001', 'OLON', 490, '2021-03-23', '2020-03-23', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 39200),
+('OLON_6303240002', 'OLON', 220, '2021-03-24', '2020-03-24', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17600),
+('OLON_6303270001', 'OLON', 180, '2021-03-27', '2020-03-27', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14400),
+('OLON_6303300001', 'OLON', 230, '2021-03-30', '2020-03-30', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 18400),
+('OLON_6304050001', 'OLON', 240, '2021-04-05', '2020-04-05', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 19200),
+('OLON_6304080001', 'OLON', 200, '2021-04-08', '2020-04-08', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('OLON_6304100001', 'OLON', 150, '2021-04-10', '2020-04-10', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12000),
+('Tea_ID', 'Type', 0, '0000-00-00', '0000-00-00', 'Manufacturer', 0),
+('WHITE_610303000', 'WHTE', 120, '2019-03-03', '2018-03-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6000),
+('WHITE_620303000', 'WHTE', 120, '2020-03-03', '2019-03-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6000),
+('WHTE_6102110001', 'WHTE', 1000, '2019-02-11', '2018-02-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakornrachasima , 30130', 50000),
+('WHTE_6102130001', 'WHTE', 2000, '2019-02-13', '2018-02-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 100000),
+('WHTE_6102140003', 'WHTE', 500, '2019-02-14', '2018-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 25000),
+('WHTE_6102170001', 'WHTE', 150, '2019-02-17', '2018-02-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7500),
+('WHTE_6102190002', 'WHTE', 200, '2019-02-19', '2018-02-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10000),
+('WHTE_6103010001', 'WHTE', 500, '2019-03-01', '2018-03-01', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 25000),
+('WHTE_6103050001', 'WHTE', 200, '2019-03-05', '2018-03-05', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10000),
+('WHTE_6103070001', 'WHTE', 400, '2019-03-07', '2018-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 20000),
+('WHTE_6103090001', 'WHTE', 350, '2019-03-09', '2018-03-09', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('WHTE_6103110001', 'WHTE', 250, '2019-03-11', '2018-03-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12500),
+('WHTE_6103120003', 'WHTE', 200, '2019-03-12', '2018-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10000),
+('WHTE_6103130001', 'WHTE', 350, '2019-03-13', '2018-03-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('WHTE_6103150001', 'WHTE', 150, '2019-03-15', '2018-03-15', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7500),
+('WHTE_6103160003', 'WHTE', 150, '2019-03-16', '2018-03-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7500),
+('WHTE_6103180001', 'WHTE', 800, '2019-03-18', '2018-03-18', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 40000),
+('WHTE_6103190004', 'WHTE', 130, '2019-03-19', '2018-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6500),
+('WHTE_6103210001', 'WHTE', 380, '2019-03-21', '2018-03-21', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 19000),
+('WHTE_6103220002', 'WHTE', 290, '2019-03-22', '2018-03-22', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14500),
+('WHTE_6103240001', 'WHTE', 510, '2019-03-24', '2018-03-24', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 25500),
+('WHTE_6103250002', 'WHTE', 320, '2019-03-25', '2018-03-25', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('WHTE_6103260002', 'WHTE', 70, '2019-03-26', '2018-03-26', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 3500),
+('WHTE_6103280001', 'WHTE', 330, '2019-03-28', '2018-03-28', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16500),
+('WHTE_6103290002', 'WHTE', 110, '2019-03-29', '2018-03-29', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 5500),
+('WHTE_6103310001', 'WHTE', 170, '2019-03-31', '2018-03-31', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 8500),
+('WHTE_6104030001', 'WHTE', 490, '2019-04-03', '2018-04-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24500),
+('WHTE_6104060001', 'WHTE', 310, '2019-04-06', '2018-04-06', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15500),
+('WHTE_6104090001', 'WHTE', 310, '2019-04-09', '2018-04-09', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15500),
+('WHTE_6202110001', 'WHTE', 1000, '2020-02-11', '2019-02-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakornrachasima , 30130', 50000),
+('WHTE_6202130001', 'WHTE', 2000, '2020-02-13', '2019-02-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 100000),
+('WHTE_6202140003', 'WHTE', 500, '2020-02-14', '2019-02-14', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 25000),
+('WHTE_6202170001', 'WHTE', 150, '2020-02-17', '2019-02-17', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7500),
+('WHTE_6202190002', 'WHTE', 200, '2020-02-19', '2019-02-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10000),
+('WHTE_6203010001', 'WHTE', 500, '2020-03-01', '2019-03-01', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 25000),
+('WHTE_6203050001', 'WHTE', 200, '2020-03-05', '2019-03-05', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10000),
+('WHTE_6203070001', 'WHTE', 400, '2020-03-07', '2019-03-07', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 20000),
+('WHTE_6203090001', 'WHTE', 350, '2020-03-09', '2019-03-09', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('WHTE_6203110001', 'WHTE', 250, '2020-03-11', '2019-03-11', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 12500),
+('WHTE_6203120003', 'WHTE', 200, '2020-03-12', '2019-03-12', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 10000),
+('WHTE_6203130001', 'WHTE', 350, '2020-03-13', '2019-03-13', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 17500),
+('WHTE_6303150001', 'WHTE', 150, '2021-03-15', '2020-03-15', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7500),
+('WHTE_6303160003', 'WHTE', 150, '2021-03-16', '2020-03-16', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 7500),
+('WHTE_6303180001', 'WHTE', 800, '2021-03-18', '2020-03-18', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 40000),
+('WHTE_6303190004', 'WHTE', 130, '2021-03-19', '2020-03-19', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 6500),
+('WHTE_6303210001', 'WHTE', 380, '2021-03-21', '2020-03-21', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 19000),
+('WHTE_6303220002', 'WHTE', 290, '2021-03-22', '2020-03-22', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 14500),
+('WHTE_6303240001', 'WHTE', 510, '2021-03-24', '2020-03-24', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 25500),
+('WHTE_6303250002', 'WHTE', 320, '2021-03-25', '2020-03-25', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16000),
+('WHTE_6303260002', 'WHTE', 70, '2021-03-26', '2020-03-26', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 3500),
+('WHTE_6303280001', 'WHTE', 330, '2021-03-28', '2020-03-28', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 16500),
+('WHTE_6303290002', 'WHTE', 110, '2021-03-29', '2020-03-29', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 5500),
+('WHTE_6303310001', 'WHTE', 170, '2021-03-31', '2020-03-31', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 8500),
+('WHTE_6304030001', 'WHTE', 490, '2021-04-03', '2020-04-03', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 24500),
+('WHTE_6304060001', 'WHTE', 310, '2021-04-06', '2020-04-06', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15500),
+('WHTE_6304090001', 'WHTE', 310, '2021-04-09', '2020-04-09', '73/1\r\nSubswong town\r\nKhanongpra, Pakchong\r\nNakhornrachasima , 30130', 15500);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transform`
+--
+
+CREATE TABLE `transform` (
+  `station` varchar(1) NOT NULL,
+  `Item_ID` varchar(15) NOT NULL,
+  `Product_Name` varchar(25) DEFAULT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Manufactured_date` date DEFAULT NULL,
+  `Expiration_date` date DEFAULT NULL,
+  `Price` int(11) DEFAULT NULL CHECK (`Price` > 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transform`
+--
+
+INSERT INTO `transform` (`station`, `Item_ID`, `Product_Name`, `Quantity`, `Manufactured_date`, `Expiration_date`, `Price`) VALUES
+('1', 'BLCK_6301020001', 'BLACK LEMON TEA DRINK', 20000, '2020-02-02', '2020-12-31', 25),
+('1', 'BLCK_6301020014', 'GREEN TEA DRINK', 2000, '2020-05-04', '2020-05-04', 25),
+('1', 'BLCK_6301030001', 'BLACK LEMON TEA DRINK', 20000, '2020-03-02', '2020-12-31', 25),
+('1', 'BLCK_6303010001', 'BLACK LEMON TEA DRINK	', 6000, '2020-03-01', '2020-12-31', 25),
+('1', 'GREN_6301010001', 'GREEN TEA  MACHA DRINK', 60000, '2020-01-01', '2020-12-31', 35),
+('1', 'GREN_6301010002', 'TASTY MACHA GREEN TEA ', 60000, '2020-01-02', '2020-12-31', 35),
+('3', 'GREN_6301010003', 'GREEN TEA  MACHA DRINK', 10000, '2020-01-03', '2020-12-31', 30),
+('5', 'GREN_6301010004', 'GREEN TEA  MACHA  POWDER', 10000, '2020-01-01', '2020-12-31', 120),
+('3', 'GREN_6305080001', 'GREEN TEA  MACHA DRINK', 6000, '2020-05-14', '2020-12-14', 35);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transportation`
+--
+
+CREATE TABLE `transportation` (
+  `Department_id` int(11) NOT NULL,
+  `Department_manager_id` varchar(10) NOT NULL,
+  `Car_ID` int(11) NOT NULL,
+  `Car_Status` varchar(10) DEFAULT NULL CHECK (`Car_Status` = 'ON USED' or `Car_Status` = 'MAINTAINED' or `Car_Status` = 'AVAILABLE'),
+  `Vehicle_registration` varchar(16) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transportation`
+--
+
+INSERT INTO `transportation` (`Department_id`, `Department_manager_id`, `Car_ID`, `Car_Status`, `Vehicle_registration`) VALUES
+(6, '6101010006', 1, 'ON USED', 'vech012345678123'),
+(6, '6101010006', 2, 'ON USED', 'vech012345678789'),
+(6, '6101010006', 3, 'ON USED', 'vech201345678789');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`Employee_id`);
+
+--
+-- Indexes for table `citizen`
+--
+ALTER TABLE `citizen`
+  ADD PRIMARY KEY (`Employee_id`);
+
+--
+-- Indexes for table `cook`
+--
+ALTER TABLE `cook`
+  ADD PRIMARY KEY (`work_station`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`Compan_ID`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`Department_id`),
+  ADD KEY `manage` (`Department_manager_id`),
+  ADD KEY `Department_id` (`Department_id`,`Department_manager_id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`Employee_id`),
+  ADD KEY `work_on` (`work_on`);
+
+--
+-- Indexes for table `material`
+--
+ALTER TABLE `material`
+  ADD PRIMARY KEY (`Item_ID`),
+  ADD KEY `tea_leaf` (`Tea_ID`);
+
+--
+-- Indexes for table `send`
+--
+ALTER TABLE `send`
+  ADD PRIMARY KEY (`Car_ID`,`Compan_ID`,`Product_ID`,`Send_date`),
+  ADD KEY `Compan_ID` (`Compan_ID`),
+  ADD KEY `Product_ID` (`Product_ID`);
+
+--
+-- Indexes for table `tea_leaf`
+--
+ALTER TABLE `tea_leaf`
+  ADD PRIMARY KEY (`Tea_ID`);
+
+--
+-- Indexes for table `transform`
+--
+ALTER TABLE `transform`
+  ADD PRIMARY KEY (`Item_ID`) USING BTREE,
+  ADD KEY `cook_from` (`station`);
+
+--
+-- Indexes for table `transportation`
+--
+ALTER TABLE `transportation`
+  ADD PRIMARY KEY (`Department_id`,`Department_manager_id`,`Car_ID`),
+  ADD KEY `Car_ID` (`Car_ID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `citizen`
+--
+ALTER TABLE `citizen`
+  ADD CONSTRAINT `citizen_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`Employee_id`);
+
+--
+-- Constraints for table `employee`
+--
+ALTER TABLE `employee`
+  ADD CONSTRAINT `work_on` FOREIGN KEY (`work_on`) REFERENCES `department` (`Department_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `material`
+--
+ALTER TABLE `material`
+  ADD CONSTRAINT `product` FOREIGN KEY (`Item_ID`) REFERENCES `transform` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tea_leaf` FOREIGN KEY (`Tea_ID`) REFERENCES `tea_leaf` (`Tea_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `send`
+--
+ALTER TABLE `send`
+  ADD CONSTRAINT `send_ibfk_1` FOREIGN KEY (`Car_ID`) REFERENCES `transportation` (`Car_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `send_ibfk_2` FOREIGN KEY (`Product_ID`) REFERENCES `transform` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `send_ibfk_3` FOREIGN KEY (`Compan_ID`) REFERENCES `customer` (`Compan_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transform`
+--
+ALTER TABLE `transform`
+  ADD CONSTRAINT `cook_from` FOREIGN KEY (`station`) REFERENCES `cook` (`work_station`);
+
+--
+-- Constraints for table `transportation`
+--
+ALTER TABLE `transportation`
+  ADD CONSTRAINT `transportation_ibfk_1` FOREIGN KEY (`Department_id`,`Department_manager_id`) REFERENCES `department` (`Department_id`, `Department_manager_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
